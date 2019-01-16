@@ -1,0 +1,64 @@
+[global_config]
+  always_split_with_profile = True
+  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, Logger, LaunchpadBugURLHandler
+  extra_styling = False
+  homogeneous_tabbar = False
+  scroll_tabbar = True
+  suppress_multiple_term_dialog = True
+  tab_position = hidden
+  title_font = Sans 6
+  title_transmit_bg_color = "#000000"
+[keybindings]
+  close_window = <Primary><Shift>q
+  go_down = <Primary><Shift>j
+  go_left = <Primary><Shift>h
+  go_prev = <Primary><Shift>p
+  go_right = <Primary><Shift>l
+  go_up = <Primary><Shift>k
+  paste = <Primary><Alt>v
+  split_horiz = <Primary><Shift>z
+  split_vert = <Primary><Shift>v
+  toggle_zoom = <Primary><Shift>m
+  zoom_in = <Primary><Shift>plus
+  zoom_out = <Primary><Shift>underscore
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+  [[gao]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = 34187ad8-df18-4662-8f1f-754de81e7033
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = ""
+      position = 624:30
+      size = 722, 477
+      title = gao@HP: ~
+      type = Window
+    [[[terminal1]]]
+      order = 0
+      parent = child0
+      profile = default
+      type = Terminal
+      uuid = 34187ad8-df18-4662-8f1f-754de81e7033
+[plugins]
+[profiles]
+  [[default]]
+    background_darkness = 0.77
+    background_type = transparent
+    copy_on_selection = True
+    cursor_color = "#aaaaaa"
+    icon_bell = False
+    palette = "#000000:#cc0000:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
+    scroll_on_output = True
+    scrollback_lines = 10000
+    scrollbar_position = hidden
+    show_titlebar = False
+    word_chars = "-,./?%&#:_+"

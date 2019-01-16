@@ -1,0 +1,10 @@
+#[ -f  ~/.mybashrc ] && source ~/.mybashrc
+set -o vi
+EDITOER=vi
+alias apti='sudo apt-get install'
+alias fg='find * | grep'
+alias m='sudo minicom'
+alias ta='tmux attach'
+alias sg='systemctl -la | grep'
+alias fg='find * | grep'
+alias pg='ps -aux | grep'
