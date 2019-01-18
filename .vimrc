@@ -174,11 +174,6 @@ autocmd Filetype python setlocal noexpandtab ts=2 sw=2 sts=2
 " Insert mode tab backspace key to 4 space(softtabstop)
 :set sts=4
 
-" Shortcut open vimrc
-map <leader>vimrc :tabe $MYVIMRC<cr>
-
-" shortcut save vimrc
-map <leader>s :so %<cr>
 
 " Provide tab-completion for all file-related tasks
 set path+=**
@@ -198,3 +193,18 @@ command! MakeTags !ctags -R .
 " command-line editing :help c_<Del>
 " Vim command argument :help -r
 " Regular expression :help /[
+
+" ###########################################################################################
+" # Short cuts                                                                              #
+" ###########################################################################################
+" Shortcut open vimrc
+nnoremap <leader>vimrc :tabe $MYVIMRC<cr>
+
+" Shortcut open buffer vertically
+nnoremap <leader>vb :vsp\|b 
+
+" Shortcut max window 
+nnoremap <leader>m :tabedit %<CR>
+
+" shortcut save vimrc
+nnoremap <leader>s :so %<cr>
