@@ -43,7 +43,8 @@ nmap <C-H> <C-W>h
 nmap <C-J> <C-W>j
 nmap <C-K> <C-W>k
 nmap <C-L> <C-W>l
-
+nmap <C-right> :vertical resize +5<CR>
+nmap <C-left> :vertical resize -5<CR>
 " nmap <F7> :Tlist<CR>
 "nmap <F8> :WMToggle<CR>
 "set width to winmanager, default is 25
@@ -124,10 +125,10 @@ let g:airline_theme = 'bubblegum'
 let g:airline#extensions#whitespace#enabled = 0
 
 " Open NERDTree
-map <C-n> :NERDTreeToggle<CR>
+map <F8> :NERDTreeToggle<CR>
 
 " Open CommandT
-map <C-m> :CommandT<CR>
+nnoremap <C-n> :CommandT<CR>
 
 " ###########################################################################################
 " # Autocomplete keys                                                                       #
@@ -162,6 +163,9 @@ abbr flase false
 filetype indent on
 autocmd Filetype perl setlocal noexpandtab ts=4 sw=4 sts=4
 autocmd Filetype python setlocal noexpandtab ts=2 sw=2 sts=2
+
+autocmd VimResized * exe "normal! \<C-w>="
+
 " Change tab to space
 :set expandtab
 
@@ -208,3 +212,4 @@ nnoremap <leader>m :tabedit %<CR>
 
 " shortcut save vimrc
 nnoremap <leader>s :so %<cr>
+
