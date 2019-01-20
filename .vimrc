@@ -99,7 +99,7 @@ Plug 'christoomey/vim-tmux-runner'
 Plug 'benmills/vimux'
 Plug 'scrooloose/nerdtree'
 Plug 'wincent/command-t'
-
+Plug 'vim-scripts/ZoomWin'
 call plug#end()
 
 if vim_plug_just_installed
@@ -112,11 +112,12 @@ endif
 colorscheme molokai
 
 " Solarized setting
-"let g:solarized_termcolors=256
+let g:solarized_termtrans = 1
+"colorscheme solarized
+
 "set background=dark
 "set background=light
-"colorscheme solarized
-" Make colorshmeme transparent(solarized "light" can work well without the following line)
+" Make malokai and vilight transparent(solarized "light" can work well without the following line)
 hi Normal guibg=NONE ctermbg=NONE
 
 " airline setting
