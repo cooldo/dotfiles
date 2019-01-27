@@ -96,7 +96,9 @@
       <property name="digital-format" type="string" value="%d %b, %H:%M"/>
       <property name="mode" type="uint" value="2"/>
     </property>
-    <property name="plugin-12" type="string" value="pager"/>
+    <property name="plugin-12" type="string" value="pager">
+      <property name="rows" type="uint" value="1"/>
+    </property>
     <property name="plugin-18" type="string" value="showdesktop"/>
     <property name="plugin-19" type="string" value="launcher">
       <property name="items" type="array">
