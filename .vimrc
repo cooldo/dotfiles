@@ -84,7 +84,7 @@ if vim_plug_just_installed
 endif
 
 call plug#begin('~/.vim/plugged')
-" Add surround plugin. ex, ysiw{   cs{[  
+" Add surround plugin. ex, ysiw{   cs{[
 Plug 'tpope/vim-surround'
 " Add colortheme plugin
 Plug 'altercation/vim-colors-solarized'
@@ -100,6 +100,7 @@ Plug 'benmills/vimux'
 Plug 'scrooloose/nerdtree'
 Plug 'wincent/command-t'
 Plug 'vim-scripts/ZoomWin'
+Plug 'csexton/trailertrash.vim'
 call plug#end()
 
 if vim_plug_just_installed
@@ -122,7 +123,10 @@ hi Normal guibg=NONE ctermbg=NONE
 
 " airline setting
 let g:airline_powerline_fonts = 0
+"let g:airline_theme = 'dark'
 let g:airline_theme = 'bubblegum'
+"let g:airline_theme = 'molokai'
+"let g:airline_theme = 'kolor'
 let g:airline#extensions#whitespace#enabled = 0
 
 " Open NERDTree
@@ -188,6 +192,9 @@ set wildmenu
 
 command! MakeTags !ctags -R .
 
+command! Wq :wq
+command! W :w
+
 " ###########################################################################################
 " # Get help from VIM documentatin                                                          #
 " ###########################################################################################
@@ -206,11 +213,13 @@ command! MakeTags !ctags -R .
 nnoremap <leader>vimrc :tabe $MYVIMRC<cr>
 
 " Shortcut open buffer vertically
-nnoremap <leader>vb :vsp\|b 
+nnoremap <leader>vb :vsp\|b
 
-" Shortcut max window 
+" Shortcut max window
 nnoremap <leader>m :tabedit %<CR>
 
 " shortcut save vimrc
 nnoremap <leader>s :so %<cr>
 
+" Delete space in the end of line
+nnoremap <leader>t :TrailerTrim <CR>
