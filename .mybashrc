@@ -3,7 +3,7 @@ set -o vi
 EDITOER=vi
 alias apti='sudo apt-get install'
 alias fg='find * | grep'
-alias m='sudo minicom'
+alias m='sudo minicom -C /media/sf_share/log/log-$(date +%Y-%m-%d_%H_%M_%S).log'
 alias ta='tmux attach'
 alias sg='systemctl -la | grep'
 alias fag='find * | grep'
