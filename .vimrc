@@ -101,6 +101,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'wincent/command-t'
 Plug 'vim-scripts/ZoomWin'
 Plug 'csexton/trailertrash.vim'
+Plug 'octol/vim-cpp-enhanced-highlight'
 call plug#end()
 
 if vim_plug_just_installed
@@ -111,6 +112,7 @@ endif
 " For preview: http://vimcolors.com/
 " Prefered: behelit,fruidle,molokai,vilight
 colorscheme molokai
+"colorscheme default
 
 " Solarized setting
 let g:solarized_termtrans = 1
@@ -190,7 +192,6 @@ set path+=**
 " Display all matching files when we tab complete
 set wildmenu
 
-command! MakeTags !ctags -R .
 
 command! Wq :wq
 command! W :w
@@ -223,3 +224,13 @@ nnoremap <leader>s :so %<cr>
 
 " Delete space in the end of line
 nnoremap <leader>t :TrailerTrim <CR>
+
+
+" Ctags config
+" Search back for a tags file
+set tags=tags;
+set autochdir
+" MakeTags to crate new tag file
+command! MakeTags !ctags -R .
+" Switch buffer no save file
+set hidden
