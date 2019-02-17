@@ -217,13 +217,13 @@ nnoremap <leader>vimrc :tabe $MYVIMRC<cr>
 nnoremap <leader>vb :vsp\|b
 
 " Shortcut max window
-nnoremap <leader>m :tabedit %<CR>
+nnoremap <leader>t :tabedit %<CR>
 
 " shortcut save vimrc
 nnoremap <leader>s :so %<cr>
 
 " Delete space in the end of line
-nnoremap <leader>t :TrailerTrim <CR>
+nnoremap <leader>e :TrailerTrim <CR>
 
 " ZoomWin"
 " Ctrl w o to max window
