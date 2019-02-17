@@ -225,12 +225,11 @@ nnoremap <leader>s :so %<cr>
 " Delete space in the end of line
 nnoremap <leader>t :TrailerTrim <CR>
 
+" ZoomWin"
+" Ctrl w o to max window
 
-" Ctags config
-" Search back for a tags file
+" ctags iterator config
 set tags=tags;
 set autochdir
-" MakeTags to crate new tag file
 command! MakeTags !ctags -R .
-" Switch buffer no save file
 set hidden
