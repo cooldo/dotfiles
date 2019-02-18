@@ -232,4 +232,5 @@ nnoremap <leader>e :TrailerTrim <CR>
 set tags=tags;
 set autochdir
 command! MakeTags !ctags -R .
+" tag jumping without saving file
 set hidden
