@@ -14,3 +14,30 @@ genpass ()
 {
    tr -dc 'a-zA-Z0-9#@.-' < /dev/urandom | head -c ${1:-14}; echo
 }
+
+#  pulseaudio config
+pa-list() { pacmd list-sinks | awk '/index/ || /name:/' ;}
+pa-set() {
+    # list all apps in playback tab (ex: mplayer, vlc)
+    inputs=($(pacmd list-sink-inputs | awk '/index/ {print $2}'))
+    # set the default output device
+    pacmd set-default-sink $1 &> /dev/null
+    for i in ${inputs[*]}; do pacmd move-sink-input $i $1 &> /dev/null; done
+}
+pa-playbacklist() {
+    # list individual apps
+    echo "=================="
+    echo "Running Apps"
+    pacmd list-sink-inputs | awk '/index/ || /application.name /'
+
+    # list all sound devices
+    echo "=================="
+    echo "Running Devices"
+    pacmd list-sinks | awk '/index/ || /name:/'
+}
+pa-playbackset() {
+    # set the default output device
+    pacmd set-default-sink "$2" &> /dev/null
+    # apply change to one running app to use the new output device
+    pacmd move-sink-input "$1" "$2" &> /dev/null
+}
