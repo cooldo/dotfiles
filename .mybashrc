@@ -9,12 +9,14 @@ alias fag='find * | grep'
 alias sfg='sudo find * | grep'
 alias pg='ps -aux | grep'
 stty -ixon -ixoff
+
+# generate random password
 genpass ()
 {
    tr -dc 'a-zA-Z0-9#@.-' < /dev/urandom | head -c ${1:-14}; echo
 }
 
-#  pulseaudio config
+# pulseaudio config
 pa-list() { pacmd list-sinks | awk '/index/ || /name:/' ;}
 pa-set() {
     # list all apps in playback tab (ex: mplayer, vlc)
