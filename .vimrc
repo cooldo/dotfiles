@@ -102,6 +102,7 @@ Plug 'wincent/command-t'
 Plug 'vim-scripts/ZoomWin'
 Plug 'csexton/trailertrash.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'sjbach/lusty'
 call plug#end()
 
 if vim_plug_just_installed
@@ -111,8 +112,8 @@ endif
 
 " For preview: http://vimcolors.com/
 " Prefered: behelit,fruidle,molokai,vilight
-colorscheme molokai
-"colorscheme default
+"colorscheme molokai
+colorscheme default
 
 " Solarized setting
 let g:solarized_termtrans = 1
@@ -232,5 +233,7 @@ nnoremap <leader>e :TrailerTrim <CR>
 set tags=tags;
 set autochdir
 command! MakeTags !ctags -R .
-" tag jumping without saving file
 set hidden
+
+" set backgroud color to white in visual mode
+:hi Visual ctermbg=8

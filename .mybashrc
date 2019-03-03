@@ -42,3 +42,26 @@ pa-playbackset() {
     # apply change to one running app to use the new output device
     pacmd move-sink-input "$1" "$2" &> /dev/null
 }
+
+# base16 color
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
+
+# dark level 1
+#base16_pop
+# dark level 2
+#base16_summerfruit-dark
+# dark level 3, blue fg file
+#base16_atelier-cave
+# dark level 3, yellow fg file
+#base16_atelier-heath
+# dark level 3, blue fg file
+base16_google-dark
+# dark level 4
+#base16_tube
+# light
+#base16_google-light
+#base16_papercolor-light
+screenfetch
