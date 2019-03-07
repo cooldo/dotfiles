@@ -5,7 +5,7 @@ alias apti='sudo apt-get install'
 alias m='sudo minicom -C /media/sf_share/log/log-$(date +%Y-%m-%d_%H_%M_%S).log'
 alias ta='tmux attach'
 alias sg='systemctl -la | grep'
-alias fag='find * | grep'
+alias fag='find * | grep -i'
 alias sfg='sudo find * | grep'
 alias pg='ps -aux | grep'
 stty -ixon -ixoff
