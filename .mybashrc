@@ -8,6 +8,7 @@ alias sg='systemctl -la | grep'
 alias fag='find * | grep -i'
 alias sfg='sudo find * | grep'
 alias pg='ps -aux | grep'
+alias c='clear'
 stty -ixon -ixoff
 
 # generate random password
