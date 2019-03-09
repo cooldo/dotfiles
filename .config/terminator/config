@@ -22,6 +22,7 @@
   toggle_zoom = <Primary><Shift>m
   zoom_in = <Primary><Alt>equal
   zoom_out = <Primary><Alt>minus
+  next_profile = <Primary><Shift>p
 [layouts]
   [[default]]
     [[[child1]]]
