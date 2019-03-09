@@ -34,7 +34,8 @@
 [plugins]
 [profiles]
   [[default]]
-    background_darkness = 0.77
+    background_darkness = 0.8
+    background_type = transparent
     copy_on_selection = True
     cursor_color = "#aaaaaa"
     icon_bell = False
@@ -44,9 +45,8 @@
     scrollbar_position = hidden
     show_titlebar = False
     word_chars = "-,./?%&#:_+"
-  [[transparent]]
+  [[system]]
     background_darkness = 0.8
-    background_type = transparent
     copy_on_selection = True
     cursor_color = "#aaaaaa"
     icon_bell = False
@@ -54,13 +54,5 @@
     scrollback_lines = 10000
     scrollbar_position = hidden
     show_titlebar = False
-  [[white]]
-    background_color = "#ffffff"
-    copy_on_selection = True
-    cursor_color = "#aaaaaa"
-    foreground_color = "#000000"
-    icon_bell = False
-    palette = "#000000:#cd0000:#00cd00:#cdcd00:#0000ee:#cd00cd:#00cdcd:#e5e5e5:#7f7f7f:#ff0000:#00ff00:#ffff00:#5c5cff:#ff00ff:#00ffff:#ffffff"
-    scrollback_lines = 10000
-    scrollbar_position = hidden
-    show_titlebar = False
+    use_theme_colors = True
+    word_chars = "-,./?%&#:_+"
