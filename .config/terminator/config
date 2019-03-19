@@ -23,6 +23,7 @@
   zoom_in = <Primary><Alt>equal
   zoom_out = <Primary><Alt>minus
   next_profile = <Primary><Shift>p
+  rotate_cw = <Primary><Alt>r
 [layouts]
   [[default]]
     [[[child1]]]
