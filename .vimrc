@@ -237,4 +237,5 @@ set hidden
 
 " set backgroud color to white in visual mode
 :hi Visual ctermbg=8
+:highlight search ctermbg=8
 nnoremap <leader>n :noh <CR>
