@@ -16,14 +16,14 @@
   go_prev = <Primary><Shift>p
   go_right = <Primary><Shift>l
   go_up = <Primary><Shift>k
+  next_profile = <Primary><Shift>p
   paste = <Primary><Alt>v
+  rotate_cw = <Primary><Shift>r
   split_horiz = <Primary><Shift>z
   split_vert = <Primary><Shift>v
   toggle_zoom = <Primary><Shift>m
-  zoom_in = <Primary><Alt>equal
-  zoom_out = <Primary><Alt>minus
-  next_profile = <Primary><Shift>p
-  rotate_cw = <Primary><Alt>r
+  zoom_in = <Primary><Shift>plus
+  zoom_out = <Primary><Shift>underscore
 [layouts]
   [[default]]
     [[[child1]]]
