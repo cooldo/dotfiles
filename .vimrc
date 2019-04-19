@@ -239,3 +239,6 @@ set hidden
 :hi Visual ctermbg=8
 :highlight search ctermbg=8
 nnoremap <leader>n :noh <CR>
+
+" unset linenumber and reletave linenumber
+nnoremap <leader>no :set nonumber norelativenumber<cr>
