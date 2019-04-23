@@ -19,6 +19,10 @@ genpass ()
    tr -dc 'a-zA-Z0-9#@.-' < /dev/urandom | head -c ${1:-14}; echo
 }
 
+rpmview() {
+    rpm2cpio $1 |cpio -ivd
+}
+
 # pulseaudio config
 pa-list() { pacmd list-sinks | awk '/index/ || /name:/' ;}
 pa-set() {
