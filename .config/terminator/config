@@ -1,7 +1,7 @@
 [global_config]
   always_split_with_profile = True
   borderless = True
-  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, Logger, LaunchpadBugURLHandler
+  enabled_plugins = TerminalShot, LaunchpadCodeURLHandler, APTURLHandler, Logger, LaunchpadBugURLHandler
   extra_styling = False
   homogeneous_tabbar = False
   scroll_tabbar = True
@@ -10,6 +10,8 @@
   title_font = Sans 6
   title_transmit_bg_color = "#000000"
 [keybindings]
+  broadcast_all = <Primary><Shift>g
+  broadcast_off = <Primary><Shift>u
   close_window = <Primary><Shift>q
   go_down = <Primary><Shift>j
   go_left = <Primary><Shift>h
@@ -17,8 +19,8 @@
   go_right = <Primary><Shift>l
   go_up = <Primary><Shift>k
   next_profile = <Primary><Shift>p
-  paste = <Primary><Alt>v
-  rotate_cw = <Primary><Shift>r
+  paste = <Shift>Insert
+  reset_clear = <Primary><Shift>r
   split_horiz = <Primary><Shift>z
   split_vert = <Primary><Shift>v
   toggle_zoom = <Primary><Shift>m
@@ -36,11 +38,13 @@
 [plugins]
 [profiles]
   [[default]]
-    background_darkness = 0.8
+    background_darkness = 0.65
     background_type = transparent
     copy_on_selection = True
     cursor_color = "#aaaaaa"
+    custom_command = xclip -o
     icon_bell = False
+    login_shell = True
     palette = "#000000:#cd0000:#00cd00:#cdcd00:#0000ee:#cd00cd:#00cdcd:#e5e5e5:#7f7f7f:#ff0000:#00ff00:#ffff00:#5c5cff:#ff00ff:#00ffff:#ffffff"
     scroll_on_output = True
     scrollback_lines = 10000
