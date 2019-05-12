@@ -23,6 +23,16 @@ rpmview() {
     rpm2cpio $1 |cpio -ivd
 }
 
+bushow()
+{
+dbus-send --session           \
+  --dest=org.freedesktop.DBus \
+  --type=method_call          \
+  --print-reply               \
+  /org/freedesktop/DBus       \
+  org.freedesktop.DBus.ListNames
+}
+
 # pulseaudio config
 pa-list() { pacmd list-sinks | awk '/index/ || /name:/' ;}
 pa-set() {
