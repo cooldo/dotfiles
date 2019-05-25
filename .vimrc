@@ -103,6 +103,8 @@ Plug 'vim-scripts/ZoomWin'
 Plug 'csexton/trailertrash.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'sjbach/lusty'
+"Plug 'hdima/python-syntax'
+"Plug 'python-mode/python-mode'
 call plug#end()
 
 if vim_plug_just_installed
@@ -159,6 +161,10 @@ vnoremap <C-c> "+y
 " In normal and visual mode, <Ctrl>v to paste from "+"
 map <C-p> "+P
 
+" New copy/paste using xclip, this can communicate between vim and terminal
+vnoremap <leader>xyy :!xclip -f -sel clip<CR>
+nnoremap <leader>xpp mz:-1r !xclip -o -sel clip<CR>`z
+
 " ###########################################################################################
 " # Autocorrect Dictionary abbr=abbreviation                                                #
 " ###########################################################################################
@@ -170,7 +176,7 @@ abbr flase false
 " ###########################################################################################
 filetype indent on
 autocmd Filetype perl setlocal noexpandtab ts=4 sw=4 sts=4
-autocmd Filetype python setlocal noexpandtab ts=2 sw=2 sts=2
+autocmd Filetype python setlocal noexpandtab ts=4 sw=4 sts=4
 
 autocmd VimResized * exe "normal! \<C-w>="
 
@@ -226,6 +232,10 @@ nnoremap <leader>s :so %<cr>
 " Delete space in the end of line
 nnoremap <leader>e :TrailerTrim <CR>
 
+" Shortcut hide number and relativenumber
+nnoremap <leader>n :set nonu nornu<CR>
+nnoremap <leader>nn :set nu rnu<CR>
+
 " ZoomWin"
 " Ctrl w o to max window
 
@@ -235,10 +245,12 @@ set autochdir
 command! MakeTags !ctags -R .
 set hidden
 
-" set backgroud color to white in visual mode
-:hi Visual ctermbg=8
-:highlight search ctermbg=8
-nnoremap <leader>n :noh <CR>
+command! White !terminator -p gao
 
-" unset linenumber and reletave linenumber
-nnoremap <leader>no :set nonumber norelativenumber<cr>
+:hi Visual ctermbg=8
+
+" For Python Syntax highlight
+"let python_highlight_all = 1
+"let g:pymode_syntax = 1
+"let g:pymode_syntax_all = 1
+:highlight search ctermbg=2
