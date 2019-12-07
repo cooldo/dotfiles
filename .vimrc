@@ -98,6 +98,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'benmills/vimux'
 Plug 'scrooloose/nerdtree'
+" cd ~/.vim/plugged/command-t
+" rake make
 Plug 'wincent/command-t'
 Plug 'vim-scripts/ZoomWin'
 Plug 'csexton/trailertrash.vim'
