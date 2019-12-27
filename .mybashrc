@@ -6,7 +6,7 @@ alias m='sudo minicom -C /media/sf_share/log/log-$(date +%Y-%m-%d_%H_%M_%S).log'
 alias ta='tmux attach'
 alias sg='systemctl -la | grep'
 alias fag='find * | grep -i'
-alias sfg='sudo find * | grep'
+alias sfag='sudo find * | grep'
 alias pg='ps -aux | grep'
 alias c='clear'
 alias sp='sudo /bin/bash -c "$(history  | tail -n 2 | head -n 1 | cut -d" " -f3-)"'
@@ -59,6 +59,10 @@ pa-playbackset() {
     pacmd set-default-sink "$2" &> /dev/null
     # apply change to one running app to use the new output device
     pacmd move-sink-input "$1" "$2" &> /dev/null
+}
+
+h() {
+    grep "$@" ~/.bash_history*
 }
 
 # base16 color
