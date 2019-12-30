@@ -5,14 +5,17 @@ alias apti='sudo apt-get install'
 alias m='sudo minicom -C /media/sf_share/log/log-$(date +%Y-%m-%d_%H_%M_%S).log'
 alias ta='tmux attach'
 alias sg='systemctl -la | grep'
-alias fag='find * | grep -i'
-alias sfag='sudo find * | grep'
 alias pg='ps -aux | grep'
 alias c='clear'
 alias sp='sudo /bin/bash -c "$(history  | tail -n 2 | head -n 1 | cut -d" " -f3-)"'
 alias lt='ls -ltr'
 
 stty -ixon -ixoff
+
+# new find and grep command
+fag () {
+    find . -iname "*$1*" ;
+}
 
 # generate random password
 genpass ()
