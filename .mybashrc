@@ -76,6 +76,10 @@ pa-playbackset() {
 }
 
 h() {
+   if [ $# -ne 1 ];then
+       cat ~/.bash_history
+       return
+   fi
     grep "$@" ~/.bash_history*
 }
 
