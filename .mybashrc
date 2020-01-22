@@ -19,7 +19,7 @@ fag () {
     fi
     #find . -iname "*$1*" ;
     # grep is nothing more than highlight the search keyword
-    find . -iname "*$1*" | grep "$1";
+    find . -iname "*$1*" | grep -i "$1";
 }
 
 # replace $1 to $2
