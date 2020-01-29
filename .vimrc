@@ -105,6 +105,7 @@ Plug 'vim-scripts/ZoomWin'
 Plug 'csexton/trailertrash.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'sjbach/lusty'
+Plug 'peterhoeg/vim-qml'
 "Plug 'hdima/python-syntax'
 "Plug 'python-mode/python-mode'
 call plug#end()
