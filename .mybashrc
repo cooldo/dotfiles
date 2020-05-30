@@ -9,6 +9,9 @@ alias pg='ps -aux | grep'
 alias c='clear'
 alias sp='sudo /bin/bash -c "$(history  | tail -n 2 | head -n 1 | cut -d" " -f3-)"'
 alias lt='ls -ltr'
+alias gs='git status'
+alias gd='git diff'
+alias gl='git log'
 
 stty -ixon -ixoff
 
