@@ -45,7 +45,7 @@ nmap <C-K> <C-W>k
 nmap <C-L> <C-W>l
 nmap <C-right> :vertical resize +5<CR>
 nmap <C-left> :vertical resize -5<CR>
-" nmap <F7> :Tlist<CR>
+nmap <F7> :Tlist<CR>
 "nmap <F8> :WMToggle<CR>
 "set width to winmanager, default is 25
 "let g:winManagerWidth = 30
@@ -228,6 +228,12 @@ nnoremap <leader>vb :vsp\|b
 
 " Shortcut max window
 nnoremap <leader>t :tabedit %<CR>
+
+" from horizon to vertical
+nnoremap <leader>v <C-W>H
+
+" from vertical to horizon
+nnoremap <leader>h <C-W>K
 
 " shortcut save vimrc
 nnoremap <leader>s :so %<cr>
