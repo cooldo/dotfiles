@@ -106,6 +106,9 @@ Plug 'csexton/trailertrash.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'sjbach/lusty'
 Plug 'peterhoeg/vim-qml'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
+Plug 'airblade/vim-gitgutter'
 "Plug 'hdima/python-syntax'
 "Plug 'python-mode/python-mode'
 call plug#end()
@@ -263,3 +266,7 @@ command! White !terminator -p gao
 "let g:pymode_syntax = 1
 "let g:pymode_syntax_all = 1
 :highlight search ctermbg=2
+set updatetime=100
+" vim-gitgutter used to do this by default:
+highlight! link SignColumn LineNr
+highlight link GitGutterChangeLine DiffText
