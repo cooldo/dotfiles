@@ -270,3 +270,8 @@ set updatetime=100
 " vim-gitgutter used to do this by default:
 highlight! link SignColumn LineNr
 highlight link GitGutterChangeLine DiffText
+
+" vimdiff for git
+" git config --global diff.tool vimdiff
+" git config --global difftool.prompt false
+" git config --global alias.d difftool
