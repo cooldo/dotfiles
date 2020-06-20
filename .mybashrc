@@ -2,7 +2,7 @@
 set -o vi
 EDITOER=vi
 alias apti='sudo apt-get install'
-alias m='sudo minicom -C /media/sf_share/log/log-$(date +%Y-%m-%d_%H_%M_%S).log'
+alias m='sudo minicom -c on -w -C /media/sf_share/log/log-$(date +%Y-%m-%d_%H_%M_%S).log'
 alias ta='tmux attach'
 alias sg='systemctl -la | grep'
 alias pg='ps -aux | grep'
