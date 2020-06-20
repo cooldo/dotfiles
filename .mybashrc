@@ -12,6 +12,8 @@ alias lt='ls -ltr'
 alias gs='git status'
 alias gd='git diff'
 alias gl='git log'
+# Tmux Clear pane
+alias tc='clear; tmux clear-history; clear'
 
 stty -ixon -ixoff
 
