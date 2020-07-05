@@ -20,7 +20,6 @@
   go_up = <Primary><Shift>k
   next_profile = <Primary><Shift>p
   paste = <Shift>Insert
-  reset_clear = <Primary><Shift>r
   split_horiz = <Primary><Shift>z
   split_vert = <Primary><Shift>v
   toggle_zoom = <Primary><Shift>m
