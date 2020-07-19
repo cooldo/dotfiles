@@ -90,7 +90,7 @@ h() {
        cat ~/.bash_history
        return
    fi
-    grep "$@" ~/.bash_history*
+    grep "$@" -a ~/.bash_history*
 }
 
 # base16 color
@@ -135,3 +135,4 @@ base16_google-dark
 #export https_proxy="socks5://127.0.0.1:1080"
 export HISTFILESIZE=400000000
 export HISTSIZE=10000
+export PATH=/home/gao/Qt/5.5/gcc/bin:$PATH
