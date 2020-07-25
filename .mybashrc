@@ -32,6 +32,16 @@ fag () {
     find "$@" -iname "*$search*" | grep -i "$search";
 }
 
+mvtotrash () {
+    dir=$(date +%Y-%m-%d_%H_%M_%S);
+    suffix=$(tr -dc 'a-zA-Z0-9' < /dev/urandom | head -c 14);
+    mydirname="$dir"_"$suffix";
+    mkdir /tmp/"$mydirname";
+    mv $@ /tmp/"$mydirname";
+}
+
+export -f mvtotrash
+
 # replace $1 to $2
 replace ()
 {
