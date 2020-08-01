@@ -32,6 +32,15 @@ fag () {
     find "$@" -iname "*$search*" | grep -i "$search";
 }
 
+# get relative date from 0:0:0
+rdate () {
+    currstamp=$(date +%s)
+    # $1 is last timestamps value from command date +%s
+    laststamp="$1"
+    result=$(("$currstamp"-"$laststamp"))
+    date -d @"$result" -u +'%H:%M:%S'
+}
+
 mvtotrash () {
     dir=$(date +%Y-%m-%d_%H_%M_%S);
     suffix=$(tr -dc 'a-zA-Z0-9' < /dev/urandom | head -c 14);
