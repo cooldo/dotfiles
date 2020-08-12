@@ -104,9 +104,10 @@ pa-playbackset() {
     pacmd move-sink-input "$1" "$2" &> /dev/null
 }
 
-h() {
+h () {
    if [ $# -ne 1 ];then
-       cat ~/.bash_history
+       cat ~/.bash_history  | tac | cat -n | tac
+       #cat -n ~/.bash_history
        return
    fi
     grep "$@" -a ~/.bash_history*
