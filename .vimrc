@@ -109,6 +109,7 @@ Plug 'peterhoeg/vim-qml'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'yegappan/taglist'
 "Plug 'hdima/python-syntax'
 "Plug 'python-mode/python-mode'
 call plug#end()
