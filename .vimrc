@@ -43,8 +43,13 @@ nmap <C-H> <C-W>h
 nmap <C-J> <C-W>j
 nmap <C-K> <C-W>k
 nmap <C-L> <C-W>l
-nmap <C-right> :vertical resize +5<CR>
-nmap <C-left> :vertical resize -5<CR>
+
+" C-right cannot be used in tmux
+" C-left cannot be used in tmux
+"nmap <C-right> :vertical resize +5<CR>
+"nmap <C-left> :vertical resize -5<CR>
+nmap <leader><left> :vertical resize +5<CR>
+nmap <leader><right> :vertical resize -5<CR>
 nmap <F7> :Tlist<CR>
 "nmap <F8> :WMToggle<CR>
 "set width to winmanager, default is 25
