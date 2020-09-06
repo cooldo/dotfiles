@@ -28,6 +28,12 @@ alias la='exa -la --color=always --group-directories-first'
 alias lm='exa -la --color=always --group-directories-first --sort=modified'
 alias lz='exa -la --color=always --group-directories-first --sort=size'
 
+# directory navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+alias 3..='cd ../../..'
+alias 4..='cd ../../../..'
+
 # misc
 alias sg='systemctl -la | grep'
 alias pg='ps -aux | grep'
