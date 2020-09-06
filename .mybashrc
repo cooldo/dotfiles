@@ -1,19 +1,57 @@
 #[ -f  ~/.mybashrc ] && source ~/.mybashrc
+# set bash command as vi mode
 set -o vi
+
+# set default editor to vi
 EDITOER=vi
+
+# package management
 alias apti='sudo apt-get install'
+
+# minicom
 alias m='sudo minicom -c on -w -C /media/sf_share/log/log-$(date +%Y-%m-%d_%H_%M_%S).log'
+
+# tmux
 alias ta='tmux attach'
+# clear pane
+alias tc='clear; tmux clear-history; clear'
+
+# git
+alias gs='git status'
+alias gd='git diff'
+alias gl='git log'
+alias gb='git branch -a'
+
+# change "ls" to "exa"
+alias ll='exa -l --color=always --group-directories-first'
+alias la='exa -la --color=always --group-directories-first'
+alias lm='exa -la --color=always --group-directories-first --sort=modified'
+alias lz='exa -la --color=always --group-directories-first --sort=size'
+
+# misc
 alias sg='systemctl -la | grep'
 alias pg='ps -aux | grep'
 alias c='clear'
 alias sp='sudo /bin/bash -c "$(history  | tail -n 2 | head -n 1 | cut -d" " -f3-)"'
-alias lt='ls -ltr'
-alias gs='git status'
-alias gd='git diff'
-alias gl='git log'
-# Tmux Clear pane
-alias tc='clear; tmux clear-history; clear'
+
+# extraction
+# usage: ex <file>
+ex () {
+    if [ -f $1 ]; then
+        case $1 in
+            *.tar.bz2)     tar xjf $1      ;;
+            *.tar.gz)      tar xzf $1      ;;
+            *.bz2)         bunzip2 $1      ;;
+            *.rar)         unrar x $1      ;;
+            *.gz)          gunzip  $1      ;;
+            *.tar)         tar xf  $1      ;;
+            *.zip)         unzip   $1      ;;
+            *.deb)         ar -x   $1      ;;
+            *.Z)           uncompress $1   ;;
+            *.7z)          7z x    $1      ;;
+        esac
+   fi
+}
 
 stty -ixon -ixoff
 
