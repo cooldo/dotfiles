@@ -3,7 +3,7 @@
 set -o vi
 
 # set default editor to vi
-EDITOER=vi
+EDITOR=vi
 
 # package management
 alias apti='sudo apt-get install'
