@@ -2,7 +2,7 @@
 " # Basic settings                                                                          #
 " ###########################################################################################
 " Map <leader> key to comma
-let mapleader="-"
+let mapleader=" "
 
 " Turn on line number
 :set nu
@@ -27,10 +27,10 @@ let mapleader="-"
 " # Next:  ]s,  suggestion: z=, put into dictionary: zg (zug), incorrect check : zw(zuw)    #
 " ###########################################################################################
 " Map F12 toggle turn on spelling check
-nmap <F12> :setlocal spell spelllang=en_us<CR>
+nmap <F10> :setlocal spell spelllang=en_us<CR>
 
 " Map <leader>F12 turn off spelling check
-nmap <leader><F12> :set nospell<CR>
+nmap <leader><F10> :set nospell<CR>
 
 " ###########################################################################################
 " # Map window navigation                                                                   #
@@ -44,12 +44,6 @@ nmap <C-J> <C-W>j
 nmap <C-K> <C-W>k
 nmap <C-L> <C-W>l
 
-" C-right cannot be used in tmux
-" C-left cannot be used in tmux
-"nmap <C-right> :vertical resize +5<CR>
-"nmap <C-left> :vertical resize -5<CR>
-nmap <leader><left> :vertical resize +5<CR>
-nmap <leader><right> :vertical resize -5<CR>
 nmap <F7> :Tlist<CR>
 "nmap <F8> :WMToggle<CR>
 "set width to winmanager, default is 25
@@ -113,10 +107,9 @@ Plug 'sjbach/lusty'
 Plug 'peterhoeg/vim-qml'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
-Plug 'airblade/vim-gitgutter'
 Plug 'yegappan/taglist'
-"Plug 'hdima/python-syntax'
-"Plug 'python-mode/python-mode'
+Plug 'sainnhe/sonokai'
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 if vim_plug_just_installed
@@ -125,18 +118,17 @@ if vim_plug_just_installed
 endif
 
 " For preview: http://vimcolors.com/
-" Prefered: behelit,fruidle,molokai,vilight
-"colorscheme molokai
-colorscheme default
-
+" Prefered: default,molokai,solarized,sonokai
 " Solarized setting
-let g:solarized_termtrans = 1
+"let g:solarized_termtrans = 1
 "colorscheme solarized
+"colorscheme molokai
+"colorscheme default
+let g:sonokai_transparent_background = 1
+colorscheme sonokai
 
-"set background=dark
-"set background=light
 " Make malokai and vilight transparent(solarized "light" can work well without the following line)
-hi Normal guibg=NONE ctermbg=NONE
+"hi Normal guibg=NONE ctermbg=NONE
 
 " airline setting
 let g:airline_powerline_fonts = 0
@@ -236,16 +228,17 @@ nnoremap <leader>vimrc :tabe $MYVIMRC<cr>
 nnoremap <leader>vb :vsp\|b
 
 " Shortcut max window
-nnoremap <leader>t :tabedit %<CR>
+nnoremap <leader>m :tabedit %<CR>
 
-" from horizon to vertical
-nnoremap <leader>v <C-W>H
+" to vertical
+map <leader>gv <C-w>t<C-w>H
+" to horizional
+map <leader>gh <C-w>t<C-w>K
 
-" from vertical to horizon
-nnoremap <leader>h <C-W>K
-
-" shortcut save vimrc
-nnoremap <leader>s :so %<cr>
+nmap <leader>l :vertical resize +5<CR>
+nmap <leader>h :vertical resize -5<CR>
+nmap <leader>j :resize +5<CR>
+nmap <leader>k :resize -5<CR>
 
 " Delete space in the end of line
 nnoremap <leader>e :TrailerTrim <CR>
@@ -253,9 +246,6 @@ nnoremap <leader>e :TrailerTrim <CR>
 " Shortcut hide number and relativenumber
 nnoremap <leader>n :set nonu nornu<CR>
 nnoremap <leader>nn :set nu rnu<CR>
-
-" ZoomWin"
-" Ctrl w o to max window
 
 " ctags iterator config
 set tags=tags;
@@ -267,17 +257,12 @@ command! White !terminator -p gao
 
 :hi Visual ctermbg=8
 
-" For Python Syntax highlight
-"let python_highlight_all = 1
-"let g:pymode_syntax = 1
-"let g:pymode_syntax_all = 1
 :highlight search ctermbg=2
 set updatetime=100
-" vim-gitgutter used to do this by default:
-highlight! link SignColumn LineNr
-highlight link GitGutterChangeLine DiffText
 
-" vimdiff for git
-" git config --global diff.tool vimdiff
-" git config --global difftool.prompt false
-" git config --global alias.d difftool
+" Enable true color 启用终端24位色
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
