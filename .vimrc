@@ -1,4 +1,59 @@
 " ###########################################################################################
+" # Plugins                                                                                 #
+" ###########################################################################################
+let vim_plug_just_installed = 0
+let vim_plug_path = expand('~/.vim/autoload/plug.vim')
+if !filereadable(vim_plug_path)
+   echo "Installing Vim-plug..."
+   echo ""
+   silent !mkdir -p ~/.vim/autoload
+   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+   let vim_plug_just_installed = 1
+endif
+
+" manually load vim-plug the first time
+if vim_plug_just_installed
+    :execute 'source '.fnameescape(vim_plug_path)
+endif
+
+call plug#begin('~/.vim/plugged')
+" Add surround plugin. ex, ysiw{   cs{[
+Plug 'tpope/vim-surround'
+" Add colortheme plugin
+Plug 'altercation/vim-colors-solarized'
+" colorsheme plugins
+Plug 'tomasr/molokai'
+Plug 'vim-scripts/vilight.vim'
+Plug 'bigcode/vim-colors-behelit'
+" Airline (status bar)
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'christoomey/vim-tmux-runner'
+Plug 'benmills/vimux'
+Plug 'scrooloose/nerdtree'
+" cd ~/.vim/plugged/command-t
+" rake make
+Plug 'wincent/command-t'
+Plug 'vim-scripts/ZoomWin'
+Plug 'csexton/trailertrash.vim'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'sjbach/lusty'
+Plug 'peterhoeg/vim-qml'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
+Plug 'yegappan/taglist'
+Plug 'sainnhe/sonokai'
+Plug 'sheerun/vim-polyglot'
+Plug 'ycm-core/YouCompleteMe'
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+call plug#end()
+
+if vim_plug_just_installed
+    echo "Installing Bundles, please ignore key map error messages"
+    :PlugInstall
+endif
+
+" ###########################################################################################
 " # Basic settings                                                                          #
 " ###########################################################################################
 " Map <leader> key to comma
@@ -64,58 +119,6 @@ nmap <F7> :Tlist<CR>
 " nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 " nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
-" ###########################################################################################
-" # Plugins                                                                                 #
-" ###########################################################################################
-let vim_plug_just_installed = 0
-let vim_plug_path = expand('~/.vim/autoload/plug.vim')
-if !filereadable(vim_plug_path)
-   echo "Installing Vim-plug..."
-   echo ""
-   silent !mkdir -p ~/.vim/autoload
-   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-   let vim_plug_just_installed = 1
-endif
-
-" manually load vim-plug the first time
-if vim_plug_just_installed
-    :execute 'source '.fnameescape(vim_plug_path)
-endif
-
-call plug#begin('~/.vim/plugged')
-" Add surround plugin. ex, ysiw{   cs{[
-Plug 'tpope/vim-surround'
-" Add colortheme plugin
-Plug 'altercation/vim-colors-solarized'
-" colorsheme plugins
-Plug 'tomasr/molokai'
-Plug 'vim-scripts/vilight.vim'
-Plug 'bigcode/vim-colors-behelit'
-" Airline (status bar)
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'christoomey/vim-tmux-runner'
-Plug 'benmills/vimux'
-Plug 'scrooloose/nerdtree'
-" cd ~/.vim/plugged/command-t
-" rake make
-Plug 'wincent/command-t'
-Plug 'vim-scripts/ZoomWin'
-Plug 'csexton/trailertrash.vim'
-Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'sjbach/lusty'
-Plug 'peterhoeg/vim-qml'
-Plug 'tpope/vim-fugitive'
-Plug 'junegunn/gv.vim'
-Plug 'yegappan/taglist'
-Plug 'sainnhe/sonokai'
-Plug 'sheerun/vim-polyglot'
-call plug#end()
-
-if vim_plug_just_installed
-    echo "Installing Bundles, please ignore key map error messages"
-    :PlugInstall
-endif
 
 " For preview: http://vimcolors.com/
 " Prefered: default,molokai,solarized,sonokai
@@ -257,7 +260,10 @@ command! White !terminator -p gao
 
 :hi Visual ctermbg=8
 
-:highlight search ctermbg=2
+hi UnwantedTrailerTrash guibg=red ctermbg=red
+highlight search ctermbg=2
+set ignorecase
+
 set updatetime=100
 
 " Enable true color 启用终端24位色
@@ -266,3 +272,17 @@ if exists('+termguicolors')
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
+
+" YCM configuration
+" Jump
+"nnoremap <c-k> :YcmCompleter GoToDeclaration<CR>|
+"nnoremap <c-]> :YcmCompleter GoToDefinition<CR>|
+"nnoremap <c-]> :YcmCompleter GoToDefinitionElseDeclaration<CR>|
+nnoremap <c-r> :YcmCompleter GoToReferences<CR>|
+let g:ycm_confirm_extra_conf = 0
+" 停止提示是否载入本地ycm_extra_conf文件
+let g:ycm_show_diagnostics_ui = 0
+"let g:ycm_auto_trigger = 0
+"let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_goto_buffer_command = 'vertical-split'
