@@ -46,6 +46,8 @@ Plug 'sainnhe/sonokai'
 Plug 'sheerun/vim-polyglot'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+Plug 'mileszs/ack.vim'
+
 call plug#end()
 
 if vim_plug_just_installed
@@ -286,3 +288,10 @@ let g:ycm_show_diagnostics_ui = 0
 "let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_goto_buffer_command = 'vertical-split'
+
+" Open a new tab and search for something
+nmap <leader>a :tab split<CR>:Ack ""<Left>
+" Immediately search for the word under the cursor in a new tab
+" CTRL-W the Word under the cursor
+" CTRL-r get the register
+nmap <leader>A :tab split<CR>:Ack <C-r><C-w><CR>
