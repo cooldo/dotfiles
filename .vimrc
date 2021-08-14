@@ -101,7 +101,6 @@ nmap <C-J> <C-W>j
 nmap <C-K> <C-W>k
 nmap <C-L> <C-W>l
 
-nmap <F7> :Tlist<CR>
 "nmap <F8> :WMToggle<CR>
 "set width to winmanager, default is 25
 "let g:winManagerWidth = 30
@@ -143,8 +142,13 @@ let g:airline_theme = 'bubblegum'
 "let g:airline_theme = 'kolor'
 let g:airline#extensions#whitespace#enabled = 0
 
+" Open Taglist
+nmap <F7> :Tlist<CR>
+:let g:Tlist_WinWidth=25
+
 " Open NERDTree
 map <F8> :NERDTreeToggle<CR>
+:let g:NERDTreeWinSize=30
 
 " Open CommandT
 nnoremap <C-n> :CommandT<CR>
