@@ -303,9 +303,6 @@ nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
 "nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 "nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
-" 强制vim仅在ctrl - ]上搜索标记文件
-set nocscopetag
-"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " cscope 自动加载cscope.out文件
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -329,3 +326,6 @@ if has("cscope")
         endif
     endif
 endif
+
+" 强制vim仅在ctrl - ]上搜索标记文件
+set nocscopetag
