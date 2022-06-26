@@ -108,19 +108,6 @@ nmap <C-L> <C-W>l
 "set tags=tags;
 "set tags+=/home/gao/windows/linux-4.13.1/tags;
 
-" ###########################################################################################
-" # Cscope configuration                                                                    #
-" ###########################################################################################
-" nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-" nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-" nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-" nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-" nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-" nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-" nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-" nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
-
-
 " For preview: http://vimcolors.com/
 " Prefered: default,molokai,solarized,sonokai
 " Solarized setting
@@ -299,3 +286,42 @@ nmap <leader>a :tab split<CR>:Ack ""<Left>
 " CTRL-W the Word under the cursor
 " CTRL-r get the register
 nmap <leader>A :tab split<CR>:Ack <C-r><C-w><CR>
+
+" ###########################################################################################
+" # Cscope configuration                                                                    #
+" ###########################################################################################
+" command
+" find `pwd` -name "*.[ch]" -o -name "*.cpp" > cscope.files
+" ctags -R;cscope -bR
+" cs add <cscope.out>
+nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+"nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+"nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+"nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+"nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+"nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+"nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+"nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" cscope 自动加载cscope.out文件
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if has("cscope")
+    set csprg=/usr/bin/cscope
+    set csto=0
+    set cst
+    set csverb
+    set cspc=3
+    "add any database in current dir
+    if filereadable("cscope.out")
+        cs add cscope.out
+    "else search cscope.out elsewhere
+    else
+        let cscope_file=findfile("cscope.out",".;")
+        let cscope_pre=matchstr(cscope_file,".*/")
+        if !empty(cscope_file) && filereadable(cscope_file)
+            set nocsverb
+            exe "cs add" cscope_file cscope_pre
+            set csverb
+        endif
+    endif
+endif

@@ -61,6 +61,13 @@ ex () {
    fi
 }
 
+# cscope
+cs () {
+    find `pwd` -name "*.[ch]" -o -name "*.cpp" > cscope.files
+    ctags -R
+    cscope -bR
+}
+
 stty -ixon -ixoff
 
 # new find and grep command
